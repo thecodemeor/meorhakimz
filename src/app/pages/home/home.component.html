@@ -1,0 +1,85 @@
+<main>
+    <header [ngClass]="responsive">
+        <img src="assets/images/background/header-container.svg">
+        <div class="logo">
+            <app-logo></app-logo>
+        </div>
+    </header>
+    <div class="sidenav" [ngClass]="responsive">
+        <div class="accesories">
+            @for ( button of ["Experience", "Download CV"]; track button; let i = $index) {
+                <button class="flat"
+                    (mouseenter)="highlight[ i ] = 'enter'"
+                    (mouseleave)="highlight[ i ] = 'leave'"
+                    (click)="button === 'Download CV' ? downloadDoc('assets/documents/Meor Hakim (resume 3).pdf') : ''">
+                    <span class="highlight" [ngClass]="highlight[ i ]"></span>
+                    <p>{{ button }}</p>
+                </button>
+            }
+        </div>
+        <div class="line"></div>
+        <div class="contact">
+            <button>
+                <a href="mailto:meorhakimz@gmail.com"><img src="assets/images/contact/email.svg" alt="Email Icon"></a>
+            </button>
+        </div>
+    </div>
+    <div class="hero" [ngClass]="responsive">
+        <div class="about">
+            <h1 class="name">Meor Hakim</h1>
+            <h6>Frontend Developer&nbsp;&nbsp;·&nbsp;&nbsp; Graphic Designer</h6>
+            <p>
+                I blend code and creativity to build experiences that connect, engage, and inspire. From dynamic web apps to captivating visuals, I take ideas from sketch to screen — with intention, precision, and heart.<br><br>
+                Explore my journey, creations, and thoughts. Let's build something extraordinary together.</p>
+        </div>
+
+    </div>
+    <div class="work" [ngClass]="responsive">
+        <div class="portfolio">
+            @for ( item of works; track item) {
+                <button class="item">
+                    <h5>{{ item.label }}</h5>
+                </button>
+            }
+        </div>
+        <div class="game">
+            <div #lcdRow class="lcd-row"></div>
+            <button (click)="openPage( 'safari-puzzle' )"><p>Play Game</p></button>
+        </div>
+    </div>
+</main>
+
+
+<main *ngIf="">
+    <div class="container">
+        <header>
+            <div class="sect-1">
+                <h1>
+                    Meor Hakim Meor Razak 
+                    &nbsp;<span class="subtitle">frontend developer</span>
+                </h1>
+            </div>
+            <div class="sect-2">
+                <div class="logo">
+                    <app-logo></app-logo>
+                </div>
+            </div>
+            <div class="sect-3">
+                <div class="copyright">
+                    &#169; thecodemeor2024
+                </div>
+            </div>
+        </header>
+        <div class="content">
+            <div class="sect-a">
+                <div class="sect-a-1">
+                    <div class="sect-a-1-1">
+                    </div>
+                    <div class="sect-a-1-2"></div>
+                </div>
+                <div class="sect-a-2"></div>
+            </div>
+            <div class="sect-b"></div>
+        </div>
+    </div>
+</main>

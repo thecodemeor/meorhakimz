@@ -1,0 +1,73 @@
+<!-- <div class="container">
+    <div id="A" class="circle" data-pos="0">
+        <div data-static="0" data-cur="a"></div>
+        <div data-static="1" data-cur=""></div>
+        <div data-static="2" data-cur=""></div>
+        <div data-static="3" data-cur=""></div>
+        <div data-static="4" data-cur=""></div>
+        <div data-static="5" data-cur=""></div>
+    </div>
+    <div id="B" class="circle" data-pos="0">
+        <div data-static="0" data-cur="b"></div>
+        <div data-static="1" data-cur=""></div>
+        <div data-static="2" data-cur=""></div>
+        <div data-static="3" data-cur=""></div>
+        <div data-static="4" data-cur=""></div>
+        <div data-static="5" data-cur=""></div>
+    </div>
+    <div id="C" class="circle" data-pos="0">
+        <div data-static="0" data-cur="c"></div>
+        <div data-static="1" data-cur=""></div>
+        <div data-static="2" data-cur=""></div>
+        <div data-static="3" data-cur=""></div>
+        <div data-static="4" data-cur=""></div>
+        <div data-static="5" data-cur=""></div>
+    </div>
+    <div id="D" class="circle" data-pos="0">
+        <div data-static="0" data-cur="d"></div>
+        <div data-static="1" data-cur=""></div>
+        <div data-static="2" data-cur=""></div>
+        <div data-static="3" data-cur=""></div>
+        <div data-static="4" data-cur=""></div>
+        <div data-static="5" data-cur=""></div>
+    </div>
+
+    <div *ngFor="let direction of ['a','b','c','d']; let i = index" class="arrow" [ngClass]="direction">
+        <div class="left" (click)="handleClick(i, 'left')"></div>
+        <div class="right" (click)="handleClick(i, 'right')"></div>
+    </div>
+</div>
+<div class="ui">
+    <div class="shuffle" (click)="shuffle(800)">Shuffle</div>
+    <div class="solved" [class.true]="isSolved">{{ isSolved ? 'SOLVED' : 'UNSOLVED' }}</div>
+</div> -->
+
+<main>
+    <div class="ui">
+        <div class="shuffle" (click)="shuffle( 800 )">Shuffle</div>
+        <div class="solved">{{ solution }}</div>
+
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="direction bottomup"><path d="m14.707 12.707-4 4a1 1 0 0 1-1.414-1.414L12.586 12 9.293 8.707a1 1 0 1 1 1.414-1.414l4 4a1 1 0 0 1 0 1.414z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="direction topup"><path d="m14.707 12.707-4 4a1 1 0 0 1-1.414-1.414L12.586 12 9.293 8.707a1 1 0 1 1 1.414-1.414l4 4a1 1 0 0 1 0 1.414z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="direction top"><path d="m14.707 12.707-4 4a1 1 0 0 1-1.414-1.414L12.586 12 9.293 8.707a1 1 0 1 1 1.414-1.414l4 4a1 1 0 0 1 0 1.414z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="direction right"><path d="m14.707 12.707-4 4a1 1 0 0 1-1.414-1.414L12.586 12 9.293 8.707a1 1 0 1 1 1.414-1.414l4 4a1 1 0 0 1 0 1.414z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="direction bottom"><path d="m14.707 12.707-4 4a1 1 0 0 1-1.414-1.414L12.586 12 9.293 8.707a1 1 0 1 1 1.414-1.414l4 4a1 1 0 0 1 0 1.414z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="direction left"><path d="m14.707 12.707-4 4a1 1 0 0 1-1.414-1.414L12.586 12 9.293 8.707a1 1 0 1 1 1.414-1.414l4 4a1 1 0 0 1 0 1.414z"/></svg> -->
+    </div>
+
+    <div class="container">
+        @for ( circle of circles; track circle; let index = $index ) {
+            <div class="group" [ngClass]="circle.label">
+                <div [id]="circle.label" class="circle" [style.rotate]="rotatingCircle( index )">
+                    @for ( load of circle.loads; track load ) {
+                        <div class="radius" [ngClass]="load.ball"></div>
+                    }
+                </div>
+                <div class="arrow" [ngClass]="circle.arrow">
+                    <button class="left" (click)="arrowClick( index, circle.label, 'left' )"></button>
+                    <button class="right" (click)="arrowClick( index, circle.label, 'right' )"></button>
+                </div>
+            </div>
+        }
+    </div>
+</main>

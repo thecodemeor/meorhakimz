@@ -1,0 +1,44 @@
+/**======================================================================
+=========================================================================
+File:           logo.component.scss
+Description:    Code-space for meor's logo.
+=========================================================================
+====================================================================== */
+
+$primary-color: #c49c81;
+$secondary-color: #6a2a00;
+$background-color: #f3e9da;
+
+svg {
+    width: 100%; height: auto;
+}
+
+.cls-1
+{ fill: url(#linear-gradient);}
+
+.cls-2
+{ fill: $primary-color;}
+
+.cls-3
+{
+    position: relative;
+    fill: white;
+    stroke:$secondary-color;
+    stroke-width: 1.5px;
+    animation: bounce 3s ease-in-out infinite;
+}
+@keyframes bounce
+{
+    0% { transform: translateY(0);}
+    50% {  transform: translateY(20px);}
+    100% {  transform: translateY(0);}
+}
+
+.cls-4
+{
+    fill:$secondary-color;
+    stroke: $primary-color;
+}
+
+.cls-4, .cls-3
+{ stroke-miterlimit:10;}
