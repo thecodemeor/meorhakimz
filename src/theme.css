@@ -1,0 +1,27 @@
+/*********************************************
+* Color Theme
+*********************************************/
+
+html body.light {
+    /* Costum Themer */
+
+    --background: white;
+
+    --primary: #3dc5ff;
+    --primary-lite: #b8e8ff;
+    --primary-dark: #025b8a;
+    --secondary-lite: #b71d1c;
+    --secondary-dark: #9e1112;
+
+    --text-color-standard: black;
+    --text-color-revert: white;
+
+    --line-primary: #b8e8ff;
+    --line-grayscale: #d1d1d1;
+
+    --color-300: #78d6ff;
+    --color-400: #3dc5ff;
+    --color-500: #06aaf1;
+    --color-600: #0088ce;
+    --color-700: #006ca7;
+}
