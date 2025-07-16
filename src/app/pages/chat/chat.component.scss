@@ -43,7 +43,8 @@ main {
             }
             &.model {
                 padding: $spacing-2 0;
-                border-top: solid 1px #d1d1d1;
+                color: var( --text-color-standard );
+                border-top: solid 1px rgba(255, 255, 255, 0.5);
                 animation: slideinright 0.3s ease-in-out forwards;
                 @keyframes slideinright {
                     from {

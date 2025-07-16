@@ -1,27 +1,175 @@
 /*********************************************
-* Color Theme
+* Light
 *********************************************/
-
 html body.light {
-    /* Costum Themer */
-
     --background: white;
-
-    --primary: #3dc5ff;
-    --primary-lite: #b8e8ff;
-    --primary-dark: #025b8a;
-    --secondary-lite: #b71d1c;
-    --secondary-dark: #9e1112;
 
     --text-color-standard: black;
     --text-color-revert: white;
 
-    --line-primary: #b8e8ff;
     --line-grayscale: #e3e3e3;
+    --mirror: ;
+}
+
+html body.light.red {
+    --primary: #ff2323;
+    --primary-lite: #ffc0c0;
+    --primary-dark: #b10303;
+
+    --line-primary: #ffc0c0;
+    --surface: #ffdddd;
+
+    --color-300: #ff9494;
+    --color-400: #ff5757;
+    --color-500: #ff2323;
+    --color-600: #ff0505;
+    --color-700: #d70000;
+}
+
+html body.light.rose {
+    --primary: #ff27ac;
+    --primary-lite: #ffc6ee;
+    --primary-dark: #b80058;
+
+    --line-primary: #ffc6ee;
+    --surface: #ffe3f6;
+
+    --color-300: #ff98de;
+    --color-400: #ff58c6;
+    --color-500: #ff27ac;
+    --color-600: #ff058a;
+    --color-700: #df006b;
+}
+
+html body.light.violet {
+    --primary: #803bff;         
+    --primary-lite: #d8cdff;    
+    --primary-dark: #5601d6;    
+
+    --line-primary: #d8cdff;    
+    --surface: #eae4ff;         
+
+    --color-300: #bca6ff;
+    --color-400: #9c73ff;
+    --color-500: #803bff;
+    --color-600: #7414ff;
+    --color-700: #6905ff;
+}
+
+html body.light.malibu {
+    --primary: #06aaf1;         
+    --primary-lite: #b8e8ff;    
+    --primary-dark: #025b8a;    
+
+    --line-primary: #b8e8ff;    
+    --surface: #dff2ff;         
 
     --color-300: #78d6ff;
     --color-400: #3dc5ff;
     --color-500: #06aaf1;
     --color-600: #0088ce;
     --color-700: #006ca7;
+}
+
+html body.light.chartreuse {
+    --primary: #63e600;         
+    --primary-lite: #cbff90;    
+    --primary-dark: #2f6d07;    
+
+    --line-primary: #cbff90;    
+    --surface: #e4ffc4;         
+
+    --color-300: #a6ff50;
+    --color-400: #76ff03;
+    --color-500: #63e600;
+    --color-600: #4bb800;
+    --color-700: #388b00;
+}
+
+/*********************************************
+* Dark
+*********************************************/
+html body.dark {
+    --background: black;
+
+    --text-color-standard: white;
+    --text-color-revert: black;
+
+    --line-grayscale: #333333;
+    --mirror: rgba( 255, 255, 255,  0.1);
+}
+
+html body.dark.red {
+    --primary: #ff2323;
+    --primary-lite: #ffc0c0;
+    --primary-dark: #b10303;
+
+    --line-primary: #ffc0c0;
+    --surface: #920a0a; 
+
+    --color-300: #ff9494;
+    --color-400: #ff5757;
+    --color-500: #ff2323;
+    --color-600: #ff0505;
+    --color-700: #d70000;
+}
+
+html body.dark.rose {
+    --primary: #ff27ac;
+    --primary-lite: #ffc6ee;
+    --primary-dark: #b80058;
+
+    --line-primary: #ffc6ee;
+    --surface: #98034c;
+
+    --color-300: #ff98de;
+    --color-400: #ff58c6;
+    --color-500: #ff27ac;
+    --color-600: #ff058a;
+    --color-700: #df006b;
+}
+
+html body.dark.violet {
+    --primary: #803bff;         
+    --primary-lite: #d8cdff;    
+    --primary-dark: #5601d6;    
+
+    --line-primary: #d8cdff;    
+    --surface: #4803af;         
+
+    --color-300: #bca6ff;
+    --color-400: #9c73ff;
+    --color-500: #803bff;
+    --color-600: #7414ff;
+    --color-700: #6905ff;
+}
+
+html body.dark.malibu {
+    --primary: #06aaf1;         
+    --primary-lite: #b8e8ff;    
+    --primary-dark: #025b8a;    
+
+    --line-primary: #b8e8ff;    
+    --surface: #084c72;         
+
+    --color-300: #78d6ff;
+    --color-400: #3dc5ff;
+    --color-500: #06aaf1;
+    --color-600: #0088ce;
+    --color-700: #006ca7;
+}
+
+html body.dark.chartreuse {
+    --primary: #63e600;         
+    --primary-lite: #cbff90;    
+    --primary-dark: #2f6d07;    
+
+    --line-primary: #cbff90;    
+    --surface: #2a5c0b;         
+
+    --color-300: #a6ff50;
+    --color-400: #76ff03;
+    --color-500: #63e600;
+    --color-600: #4bb800;
+    --color-700: #388b00;
 }

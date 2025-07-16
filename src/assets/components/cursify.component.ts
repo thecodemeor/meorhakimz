@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef, AfterViewInit, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { SpaceringCursorService } from 'src/service/spacering-cursor.service';
 import { RainbowfluidCursorService } from 'src/service/rainbowfluid-cursor.service';
 
@@ -17,7 +17,7 @@ import { RainbowfluidCursorService } from 'src/service/rainbowfluid-cursor.servi
     `,
     standalone: false
 })
-export class SpaceRingCursor implements OnInit, AfterViewInit, OnDestroy {
+export class CursifyComponent implements OnInit, AfterViewInit, OnDestroy {
     @ViewChild( 'canvasElement' ) canvasElement!: ElementRef< HTMLCanvasElement >;
 
     constructor( private canvasCursorService: SpaceringCursorService ) {}

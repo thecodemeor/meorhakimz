@@ -1,4 +1,45 @@
-<div class="trademark" [class]="responsive">
+<div class="layer settings">
+    <app-button button class="setting" [matMenuTriggerFor]="setting">
+        <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" width="24px" height="24px" viewBox="0 0 24 24">
+            <defs>
+                <style>
+                    .st0 { fill: #7414ff; }
+                    .st1 { fill: #ff0505; }
+                    .st2 { fill: #3dc5ff; }
+                    .default { fill: var( --text-color-standard ); }
+                </style>
+            </defs>
+            <path class="st2" d="M5.64,20.36c-.33,0-.61-.11-.84-.34-.23-.23-.34-.51-.34-.84v-5.81h-.82c-.33,0-.61-.11-.84-.34-.23-.23-.34-.51-.34-.84s.11-.61.34-.84c.23-.23.51-.34.84-.34h4.01c.33,0,.61.11.84.34.23.23.34.51.34.84s-.11.61-.34.84c-.23.23-.51.34-.84.34h-.82v5.82c0,.33-.11.61-.34.84-.23.23-.51.34-.84.34Z"/>
+            <path class="default" d="M5.64,9c-.33,0-.61-.11-.84-.34-.23-.23-.34-.51-.34-.84v-3c0-.33.11-.61.34-.84.23-.23.51-.34.84-.34.33,0,.61.11.84.34.23.23.34.51.34.84v3.01c0,.33-.11.61-.34.84-.23.23-.51.34-.84.34Z"/>
+            <path class="st0" d="M9.99,9c-.33,0-.61-.11-.84-.34-.23-.23-.34-.51-.34-.84,0-.33.11-.61.34-.84.23-.23.51-.34.84-.34h.81v-1.81c0-.33.11-.61.34-.84.23-.23.51-.34.84-.34s.61.11.84.34c.23.23.34.51.34.84v1.81h.82c.33,0,.61.11.84.34.23.23.34.51.34.84s-.11.61-.34.84c-.23.23-.51.34-.84.34h-4.01Z"/>
+            <path class="default" d="M12,20.36c-.33,0-.61-.11-.84-.34-.23-.23-.34-.51-.34-.84v-6.99c0-.33.11-.61.34-.84.23-.23.51-.34.84-.34.33,0,.61.11.84.34.23.23.34.51.34.84v6.99c0,.33-.11.61-.34.84-.23.23-.51.34-.84.34Z"/>
+            <path class="st1" d="M18.37,20.36c-.33,0-.61-.11-.84-.34-.23-.23-.34-.51-.34-.84v-1.81h-.82c-.33,0-.61-.11-.84-.34-.23-.23-.34-.51-.34-.84s.11-.61.34-.84c.23-.23.51-.34.84-.34h4.01c.33,0,.61.11.84.34.23.23.34.51.34.84s-.11.61-.34.84c-.23.23-.51.34-.84.34h-.82v1.82c0,.33-.11.61-.34.84-.23.23-.51.34-.84.34Z"/>
+            <path class="default" d="M18.37,13c-.33,0-.61-.11-.84-.34-.23-.23-.34-.51-.34-.84v-7.01c0-.33.11-.61.34-.84.23-.23.51-.34.84-.34.33,0,.61.11.84.34.23.23.34.51.34.84v7.01c0,.33-.11.61-.34.84-.23.23-.51.34-.84.34Z"/>
+        </svg>
+    </app-button>
+    <mat-menu #setting="matMenu">
+        <mat-card class="settings" appearance="outlined">
+            <mat-card-header>
+                <mat-card-title>Settings</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <app-toggle style="margin: 0 auto;" (click)="selectTheme( $event )"></app-toggle>
+            </mat-card-content>
+            <mat-card-content class="theme">
+                @for( color of themes; track color ) {
+                    <div class="sample" (click)="selectColor( $event, color.label )">
+                        <div class="color" [style.background]="color.code"></div>
+                    </div>
+                }
+            </mat-card-content>
+            <mat-card-footer>
+                <p>Version {{ version }}</p>
+                <p>&copy; {{ licenseYear }}. All Rights Reserved</p>
+            </mat-card-footer>
+        </mat-card>
+    </mat-menu>
+</div>
+<div class="layer trademark" [class]="responsive">
     &#64;{{ author }}
 </div>
 <main>

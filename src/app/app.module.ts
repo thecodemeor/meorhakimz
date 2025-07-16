@@ -8,14 +8,17 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { AppComponent } from 'src/app/app.component';
 
-// --- Extra --- //
+// --- Angular Material --- //
+import { MatCardModule } from '@angular/material/card'
+import { MatMenuModule } from '@angular/material/menu'
 
 // --- Extra Component --- //
 // import { LogoComponent } from 'src/assets/components/logo.component';
 import { ButtonComponent } from 'src/assets/components/button.component';
 import { InputComponent } from 'src/assets/components/input.component';
+import { ToggleComponent } from 'src/assets/components/toggle.component';
 
-import { SpaceRingCursor } from 'src/assets/components/cursify.component';
+import { CursifyComponent } from 'src/assets/components/cursify.component';
 
 // --- Page List --- //
 import { HomeComponent } from 'src/app/pages/home/home.component';
@@ -30,14 +33,19 @@ import { ChatComponent } from './pages/chat/chat.component';
         // LogoComponent,
         ButtonComponent,
         InputComponent,
-        SpaceRingCursor
+        ToggleComponent,
+        CursifyComponent
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         CommonModule,
         HttpClientModule,
-        FormsModule
+        FormsModule,
+
+        // Angular Material
+        MatCardModule,
+        MatMenuModule
     ],
     providers: [],
     bootstrap: [AppComponent]

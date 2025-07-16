@@ -15,7 +15,7 @@ interface ChatMessage {
     templateUrl: './chat.component.html',
     styleUrl: './chat.component.scss'
 })
-export class ChatComponent {
+export class ChatComponent implements OnInit {
     @ViewChild( 'messagesEnd' ) messagesEndRef!: ElementRef;
     @ViewChild( 'chatContainer' ) chatContainerRef!: ElementRef;
     @Output() sendLoading = new EventEmitter< boolean >();

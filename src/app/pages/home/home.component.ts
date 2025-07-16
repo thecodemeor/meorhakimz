@@ -1,7 +1,9 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, Renderer2, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 
 // Service
+import packageJson from '../../../../package.json'
 import { animate, stagger } from 'animejs';
 
 @Component({
@@ -12,9 +14,14 @@ import { animate, stagger } from 'animejs';
 })
 export class HomeComponent implements OnInit {
     author: string = 'thecodemeor'
+    version: string = packageJson.version
+    licenseYear: number = new Date().getFullYear()
     private breakpointObserver = inject( BreakpointObserver );
-    
-    menus = [ "me", "projects", "skills", "fun", "contact" ]
+    constructor(
+        private renderer: Renderer2,
+        @Inject( DOCUMENT ) private document: Document
+    ) { }
+
     responsive: string = ''
     ngOnInit() {
         this.breakpointObserver.observe([
@@ -50,6 +57,30 @@ export class HomeComponent implements OnInit {
         });
     }
 
+    theme: boolean = true
+    selectTheme( event: MouseEvent ) {
+        event.stopPropagation()
+        this.theme = !this.theme
+        if ( this.theme ) {
+            this.renderer.addClass( this.document.body, 'light' );
+            this.renderer.removeClass( this.document.body, 'dark' );
+        } else {
+            this.renderer.addClass( this.document.body, 'dark' );
+            this.renderer.removeClass( this.document.body, 'light' );
+        }
+    }
+
+    selectColor( event: MouseEvent, color: string ) {
+        event.stopPropagation()
+        for ( const item of this.themes ) {
+            if ( color === item.label ) {
+                this.renderer.addClass( this.document.body, color );
+            } else {
+                this.renderer.removeClass( this.document.body, item.label );
+            }
+        }
+    }
+
     userInput: string = ''
     getValue( value: string ) {
         this.userInput = value;
@@ -59,4 +90,16 @@ export class HomeComponent implements OnInit {
     getLoading( status: boolean ) {
         this.loading = status;
     }
+
+    // *** Menu Bar ************************************************** //
+    menus = [ "me", "projects", "skills", "fun", "contact" ]
+
+    // *** Color Collection ****************************************** //
+    themes = [
+        { label: 'red', code: '#ff2323'},
+        { label: 'rose', code: '#ff27ac'},
+        { label: 'violet', code: '#803bff'},
+        { label: 'malibu', code: '#06aaf1'},
+        { label: 'chartreuse', code: '#63e600'},
+    ]
 }

@@ -3,8 +3,6 @@ import {
     Input, 
     Output, 
     OnInit,
-    ElementRef, 
-    AfterViewInit,
     EventEmitter
 } from '@angular/core';
 
@@ -17,8 +15,8 @@ import { animate, stagger } from 'animejs';
     template: `
         <div class="container" [class.glow]="isFocused">
             <input #textInput type="text" [(ngModel)]="userInput" [placeholder]="!loading ? 'Ask me anything...' : '...'" (focus)="isFocused=true" (blur)="isFocused=false" (keydown.enter)="submit()">
-            <span (click)="submit()">
-                <app-button button="icon">
+            <span>
+                <app-button button="icon" (click)="submit()">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="white">
                         <path d="M427-615.91 253.04-441.96q-15.95 15.96-37.61 15.74-21.65-.21-37.6-16.17-14.96-15.96-15.18-37.61-.22-21.65 15.74-37.61l264-264q7.7-7.69 17.52-11.61 9.83-3.91 20.09-3.91t20.09 3.91q9.82 3.92 17.52 11.61l264.56 264.57q15.53 15.52 15.53 37.11 0 21.58-15.53 37.54-15.95 15.96-37.82 15.96t-37.83-15.96L533-615.91v422.13q0 22.08-15.46 37.54-15.45 15.46-37.54 15.46t-37.54-15.46Q427-171.7 427-193.78v-422.13Z"/>
                     </svg>
@@ -36,7 +34,7 @@ import { animate, stagger } from 'animejs';
             padding: 0 0 0 var( --input-sizing );
             border: solid 1px var( --line-grayscale );
             border-radius: 2rem;
-            background: rgba( 255, 255, 255,  0.5);
+            background: var( --mirror );
             backdrop-filter: blur( 50px ); // frosted blur
             -webkit-backdrop-filter: blur( 50px ); // for Safari
             overflow: hidden;
@@ -44,6 +42,12 @@ import { animate, stagger } from 'animejs';
         input {
             flex: 1 1 0;
             width: 100%; height: 100%;
+            padding: 0;
+            font-size: 1rem;
+            color: var( --text-color-standard );
+            border: none;
+            background: transparent;
+            outline: none;
         }
         span {
             height: 100%;

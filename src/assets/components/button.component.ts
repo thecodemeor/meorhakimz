@@ -22,9 +22,11 @@ import { Component, Input, OnInit, ElementRef, Renderer2 } from '@angular/core';
             position: relative;
             display: flex;
             width: 100%; height: 100%;
+            padding: 0.625rem;
+            color: var( --text-color-standard );
             border: solid 1px var( --line-grayscale );
             border-radius: 1.25rem;
-            background: rgba( 255, 255, 255,  0.5);
+            background: var( --mirror );
             backdrop-filter: blur( 50px ); // frosted blur
             -webkit-backdrop-filter: blur( 50px ); // for Safari
             justify-content: center;
