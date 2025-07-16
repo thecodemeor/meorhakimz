@@ -1,5 +1,4 @@
 import { Component, OnInit, inject } from '@angular/core';
-
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 
 // Service
@@ -12,11 +11,10 @@ import { animate, stagger } from 'animejs';
     styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit {
-
-    menus = [ "me", "projects", "skills", "fun", "contact" ]
-
+    author: string = 'thecodemeor'
     private breakpointObserver = inject( BreakpointObserver );
-
+    
+    menus = [ "me", "projects", "skills", "fun", "contact" ]
     responsive: string = ''
     ngOnInit() {
         this.breakpointObserver.observe([
@@ -52,7 +50,13 @@ export class HomeComponent implements OnInit {
         });
     }
 
+    userInput: string = ''
     getValue( value: string ) {
-        console.log('Received from app-input:', value);
+        this.userInput = value;
+    }
+
+    loading: boolean = false
+    getLoading( status: boolean ) {
+        this.loading = status;
     }
 }

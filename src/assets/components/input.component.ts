@@ -2,8 +2,7 @@ import {
     Component, 
     Input, 
     Output, 
-    OnInit, 
-    ContentChild, 
+    OnInit,
     ElementRef, 
     AfterViewInit,
     EventEmitter
@@ -17,7 +16,7 @@ import { animate, stagger } from 'animejs';
     standalone: false,
     template: `
         <div class="container" [class.glow]="isFocused">
-            <ng-content></ng-content>
+            <input #textInput type="text" [(ngModel)]="userInput" [placeholder]="!loading ? 'Ask me anything...' : '...'" (focus)="isFocused=true" (blur)="isFocused=false" (keydown.enter)="submit()">
             <span (click)="submit()">
                 <app-button button="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="white">
@@ -37,12 +36,12 @@ import { animate, stagger } from 'animejs';
             padding: 0 0 0 var( --input-sizing );
             border: solid 1px var( --line-grayscale );
             border-radius: 2rem;
-            background: rgba( 255, 255, 255,  0.1);
-            backdrop-filter: blur( 20px ); // frosted blur
-            -webkit-backdrop-filter: blur( 20px ); // for Safari
+            background: rgba( 255, 255, 255,  0.5);
+            backdrop-filter: blur( 50px ); // frosted blur
+            -webkit-backdrop-filter: blur( 50px ); // for Safari
             overflow: hidden;
         }
-        ng-content {
+        input {
             flex: 1 1 0;
             width: 100%; height: 100%;
         }
@@ -60,16 +59,13 @@ import { animate, stagger } from 'animejs';
     `
 })
 export class InputComponent implements OnInit {
-    @ContentChild( 'textInput' ) textInputRef!: ElementRef< HTMLInputElement >;
+    @Input() loading: boolean = false
     @Output() sendValue = new EventEmitter< string >();
     
     ngOnInit() {}
 
     isFocused = false
     ngAfterViewInit() {
-        const inputEl = this.textInputRef.nativeElement;
-        inputEl.addEventListener( 'focus', () => this.isFocused = true );
-        inputEl.addEventListener( 'blur', () => this.isFocused = false );
 
         // Animation
         animate('.container', {
@@ -81,11 +77,9 @@ export class InputComponent implements OnInit {
         });
     }
 
+    userInput: string = ''
     submit() {
-        if ( this.textInputRef ) {
-            const value = this.textInputRef.nativeElement.value;
-            this.sendValue.emit( value );
-            this.textInputRef.nativeElement.value = ''
-        }
+        this.sendValue.emit( this.userInput );
+        this.userInput = ''
     }
 }

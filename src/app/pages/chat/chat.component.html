@@ -1,0 +1,15 @@
+<main class="container">
+    <div *ngFor="let message of chatHistory; let i = index"
+        [ngClass]="{
+            'flex-right': message.role === 'user',
+            'flex-left': message.role === 'model'
+        }"
+        class="chat-row"
+    >
+        <div [ngClass]="message.role"
+            class="chat">
+        <p class="whitespace-pre-wrap">{{ message.text }}</p>
+        </div>
+    </div>
+    <div *ngIf="scrolldown" #messagesEnd></div>
+</main>

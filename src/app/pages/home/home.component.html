@@ -1,12 +1,12 @@
-<app-spacering-cursor *ngIf="responsive === 'mobile' ? false : true"></app-spacering-cursor>
+<div class="trademark" [class]="responsive">
+    &#64;{{ author }}
+</div>
 <main>
     <div class="chatbox">
-        <div class="chat-container"></div>
+        <app-chat [userInput]="userInput" (sendLoading)="getLoading( $event )"></app-chat>
     </div>
-    <div class="inputbox" [class]="responsive ? 'mobile' : ''">
-        <app-input (sendValue)="getValue( $event )">
-            <input #textInput type="text" placeholder="Ask me anything...">
-        </app-input>
+    <div class="inputbox" [class]="responsive" [class.disabled]="loading">
+        <app-input [loading]="loading" (sendValue)="getValue( $event )"></app-input>
     </div>
     <div class="short-links">
         @for ( menu of menus; track menu ) {

@@ -1,14 +1,18 @@
-// src/app/canvas-cursor/canvas-cursor.component.ts
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, AfterViewInit, Input } from '@angular/core';
 import { SpaceringCursorService } from 'src/service/spacering-cursor.service';
+import { RainbowfluidCursorService } from 'src/service/rainbowfluid-cursor.service';
 
 @Component({
-    selector: 'app-spacering-cursor',
-    template: `<canvas #canvasElement></canvas>`,
+    selector: 'app-cursor-canvas',
+    template: `
+        <!-- <canvas #canvasElement></canvas> -->
+        <canvas id="fluid"></canvas>
+    `,
     styles: `
         canvas {
             position: fixed;
             top: 0; left: 0;
+            width: 100dvw; height: 100dvh;
         }
     `,
     standalone: false
@@ -21,9 +25,13 @@ export class SpaceRingCursor implements OnInit, AfterViewInit, OnDestroy {
     ngOnInit(): void {}
 
     ngAfterViewInit(): void {
+        // For Space Ring
         if ( this.canvasElement ) {
             this.canvasCursorService.initializeCanvas( this.canvasElement.nativeElement );
         }
+
+        // For Fluid
+        RainbowfluidCursorService()
     }
 
     ngOnDestroy(): void {

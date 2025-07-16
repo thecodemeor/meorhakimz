@@ -24,9 +24,9 @@ import { Component, Input, OnInit, ElementRef, Renderer2 } from '@angular/core';
             width: 100%; height: 100%;
             border: solid 1px var( --line-grayscale );
             border-radius: 1.25rem;
-            background: rgba( 255, 255, 255,  0.1);
-            backdrop-filter: blur( 20px ); // frosted blur
-            -webkit-backdrop-filter: blur( 20px ); // for Safari
+            background: rgba( 255, 255, 255,  0.5);
+            backdrop-filter: blur( 50px ); // frosted blur
+            -webkit-backdrop-filter: blur( 50px ); // for Safari
             justify-content: center;
             align-items: center;
             gap: 0.625rem;
