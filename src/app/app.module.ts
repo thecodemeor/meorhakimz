@@ -17,12 +17,15 @@ import { MatMenuModule } from '@angular/material/menu'
 import { ButtonComponent } from 'src/assets/components/button.component';
 import { InputComponent } from 'src/assets/components/input.component';
 import { ToggleComponent } from 'src/assets/components/toggle.component';
+import { LoadingComponent } from 'src/assets/components/loading.component';
+import { GravitiComponent } from 'src/assets/components/graviti-star.component';
 
 import { CursifyComponent } from 'src/assets/components/cursify.component';
 
 // --- Page List --- //
 import { HomeComponent } from 'src/app/pages/home/home.component';
-import { ChatComponent } from './pages/chat/chat.component';
+import { ChatComponent } from 'src/app/pages/chat/chat.component';
+import { SetProjectComponent } from 'src/assets/shared/set-projects.component';
 
 @NgModule({
     declarations: [
@@ -30,11 +33,16 @@ import { ChatComponent } from './pages/chat/chat.component';
         HomeComponent,
         ChatComponent,
 
+        // Set
+        SetProjectComponent,
+
         // LogoComponent,
         ButtonComponent,
         InputComponent,
         ToggleComponent,
-        CursifyComponent
+        CursifyComponent,
+        LoadingComponent,
+        GravitiComponent
     ],
     imports: [
         BrowserModule,

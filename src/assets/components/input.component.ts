@@ -14,7 +14,7 @@ import { animate, stagger } from 'animejs';
     standalone: false,
     template: `
         <div class="container" [class.glow]="isFocused">
-            <input #textInput type="text" [(ngModel)]="userInput" [placeholder]="!loading ? 'Ask me anything...' : '...'" (focus)="isFocused=true" (blur)="isFocused=false" (keydown.enter)="submit()">
+            <input #textInput type="text" [(ngModel)]="userInput" [placeholder]="!loading ? 'Ask me anything...' : '...'" (focus)="isFocused=true" (blur)="isFocused=false" [disabled]="loading" (keydown.enter)="submit()">
             <span>
                 <app-button button="icon" (click)="submit()">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="white">
@@ -77,7 +77,7 @@ export class InputComponent implements OnInit {
             padding: { from: '0' },
             easing: 'easeOutBack',
             duration: 600,
-            delay: 800
+            delay: 300
         });
     }
 

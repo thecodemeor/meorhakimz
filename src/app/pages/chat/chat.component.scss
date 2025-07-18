@@ -3,8 +3,12 @@ $spacing-2: 1.25rem;
 $spacing-3: 1.875rem;
 :host {
     width: 100%; height: 100%;
+
+    ::-webkit-scrollbar { width: 6px;}
+    ::-webkit-scrollbar-thumb { border-radius: 3px; background: var( --primary-dark );}
 }
 main {
+    position: relative;
     display: flex;
     width: 100%; height: 100%;
     padding: $spacing-2;
@@ -27,6 +31,7 @@ main {
                 margin: 0 0 $spacing-2 auto;
                 padding: $spacing-1 $spacing-3;
                 color: white;
+                border-bottom: solid 1px rgba(255, 255, 255, 0.5);
                 border-radius: $spacing-2 0 $spacing-2 $spacing-2 ;
                 background: var( --primary );
                 animation: slideinleft 0.3s ease-in-out forwards;
@@ -44,7 +49,6 @@ main {
             &.model {
                 padding: $spacing-2 0;
                 color: var( --text-color-standard );
-                border-top: solid 1px rgba(255, 255, 255, 0.5);
                 animation: slideinright 0.3s ease-in-out forwards;
                 @keyframes slideinright {
                     from {
@@ -56,6 +60,24 @@ main {
                         opacity: 1;
                     }
                 }
+            }
+        }
+    }
+
+    .loading {
+        flex: 1 1 0;
+        position: relative;
+        display: flex;
+        width: 100%;
+        padding: $spacing-3 0;
+        justify-content: center;
+    }
+    app-graviti-star {
+        animation: slide-up 0.4s forwards ease-out;
+        @keyframes slide-up {
+            from {
+                transform: translateY( 5rem );
+                opacity: 0;
             }
         }
     }

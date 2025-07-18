@@ -30,7 +30,7 @@ export class ChatComponent implements OnInit {
     ngOnInit(): void {}
 
     ngAfterViewChecked(): void {
-        this.scrollToBottom();
+        // this.scrollToBottom();
     }
 
     @Input()

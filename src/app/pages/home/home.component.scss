@@ -36,7 +36,6 @@ main {
     .chatbox {
         flex: 1 1 0;
         width: 100%; height: 100%;
-        padding: 0 $spacing-1;
         border: solid 1px var( --primary );
         border-radius: $spacing-2;
         background: var( --mirror );

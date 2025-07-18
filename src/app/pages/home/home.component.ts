@@ -41,6 +41,13 @@ export class HomeComponent implements OnInit {
     }
 
     ngAfterViewInit() {
+        animate( 'app-input', {
+            width: { from: '4rem' },
+            easing: 'easeOutBack',
+            duration: 600,
+            delay: 300
+        });
+
         animate( 'app-button.link', {
             translateY: { from: '4rem' },
             opacity: { from: '0' },
@@ -49,11 +56,10 @@ export class HomeComponent implements OnInit {
             delay: stagger( 150 )
         });
 
-        animate( 'app-input', {
-            width: { from: '4rem' },
+        animate( 'app-button.setting', {
+            translateX: { from: '4rem' },
             easing: 'easeOutBack',
             duration: 600,
-            delay: 800
         });
     }
 

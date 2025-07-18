@@ -11,5 +11,12 @@
         <p class="whitespace-pre-wrap">{{ message.text }}</p>
         </div>
     </div>
+
+    <!-- <app-set-project></app-set-project> -->
+
+    <div *ngIf="loading" class="loading">
+        <app-loading></app-loading>
+    </div>
     <div *ngIf="scrolldown" #messagesEnd></div>
+    <app-graviti-star *ngIf="loading"></app-graviti-star>
 </main>
