@@ -1,4 +1,8 @@
 <main class="container">
+    <div *ngIf="!chatHistory.length" class="intros">
+        <app-logo class="intro"></app-logo>
+        <h1 class="intro">AI Pörtfolio</h1>
+    </div>
     <div *ngFor="let message of chatHistory; let i = index"
         [ngClass]="{
             'flex-right': message.role === 'user',

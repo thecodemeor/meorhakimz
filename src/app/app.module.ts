@@ -13,7 +13,7 @@ import { MatCardModule } from '@angular/material/card'
 import { MatMenuModule } from '@angular/material/menu'
 
 // --- Extra Component --- //
-// import { LogoComponent } from 'src/assets/components/logo.component';
+import { LogoComponent } from 'src/assets/shared/logo/logo.component';
 import { ButtonComponent } from 'src/assets/components/button.component';
 import { InputComponent } from 'src/assets/components/input.component';
 import { ToggleComponent } from 'src/assets/components/toggle.component';
@@ -36,7 +36,7 @@ import { SetProjectComponent } from 'src/assets/shared/set-projects.component';
         // Set
         SetProjectComponent,
 
-        // LogoComponent,
+        LogoComponent,
         ButtonComponent,
         InputComponent,
         ToggleComponent,

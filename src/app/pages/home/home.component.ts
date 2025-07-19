@@ -4,7 +4,7 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 
 // Service
 import packageJson from '../../../../package.json'
-import { animate, stagger } from 'animejs';
+import { animate, stagger, svg } from 'animejs';
 
 @Component({
     selector: 'app-home',
@@ -30,9 +30,9 @@ export class HomeComponent implements OnInit {
             Breakpoints.TabletPortrait
         ])
         .subscribe( result => {
-            if ( result.matches && !result.breakpoints[Breakpoints.HandsetLandscape] ) {
+            if ( result.matches && !result.breakpoints[ Breakpoints.HandsetLandscape ]) {
                 this.responsive = 'mobile'
-            } else if (result.breakpoints[Breakpoints.HandsetLandscape] ) {
+            } else if ( result.breakpoints[ Breakpoints.HandsetLandscape ]) {
                 this.responsive = 'mobile-landscape'
             } else {
                 this.responsive = ''
@@ -41,6 +41,12 @@ export class HomeComponent implements OnInit {
     }
 
     ngAfterViewInit() {
+        animate( svg.createDrawable( '.line' ), {
+            draw: [ '0 0', '0 1' ],
+            ease: 'inOutQuad',
+            duration: 1500,
+        });
+
         animate( 'app-input', {
             width: { from: '4rem' },
             easing: 'easeOutBack',

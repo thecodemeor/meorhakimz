@@ -8,7 +8,7 @@ html body.light {
     --text-color-revert: white;
 
     --line-grayscale: #e3e3e3;
-    --mirror: ;
+    --mirror: rgba(255, 255, 255, 0.5);
 }
 
 html body.light.red {
