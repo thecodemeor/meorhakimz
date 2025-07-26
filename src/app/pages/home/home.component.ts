@@ -41,12 +41,6 @@ export class HomeComponent implements OnInit {
     }
 
     ngAfterViewInit() {
-        animate( svg.createDrawable( '.line' ), {
-            draw: [ '0 0', '0 1' ],
-            ease: 'inOutQuad',
-            duration: 1500,
-        });
-
         animate( 'app-input', {
             width: { from: '4rem' },
             easing: 'easeOutBack',

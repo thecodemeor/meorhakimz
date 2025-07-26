@@ -13,7 +13,7 @@ import { animate, stagger } from 'animejs';
     selector: 'app-input',
     standalone: false,
     template: `
-        <div class="container" [class.glow]="isFocused">
+        <div class="container-box" [class.glow]="isFocused">
             <input #textInput type="text" [(ngModel)]="userInput" [placeholder]="!loading ? 'Ask me anything...' : '...'" (focus)="isFocused=true" (blur)="isFocused=false" [disabled]="loading" (keydown.enter)="submit()">
             <span>
                 <app-button button="icon" (click)="submit()">
@@ -28,7 +28,7 @@ import { animate, stagger } from 'animejs';
         :host {
             --input-sizing: 2rem;
         }
-        .container {
+        .container-box {
             display: flex;
             width: 100%; height: calc( var( --input-sizing ) * 2 );
             padding: 0 0 0 var( --input-sizing );
@@ -72,7 +72,7 @@ export class InputComponent implements OnInit {
     ngAfterViewInit() {
 
         // Animation
-        animate('.container', {
+        animate('.container-box', {
             width: { from: '4rem' },
             padding: { from: '0' },
             easing: 'easeOutBack',

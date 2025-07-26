@@ -4,12 +4,17 @@ $spacing-3: 1.875rem;
 :host {
     display: block;
     width: 100%; height: 100%;
-    border: solid 1px var( --primary );
+    border: solid 2px transparent;
     border-radius: $spacing-2;
     background: var( --mirror );
     backdrop-filter: blur( 50px ); // frosted blur
     -webkit-backdrop-filter: blur( 50px ); // for Safari
     overflow: hidden;
+    animation: show 1s ease-out forwards;
+    animation-delay: 2.5s;
+    @keyframes show {
+        to { border: solid 2px var( --primary );}
+    }
 }
 main {
     position: relative;

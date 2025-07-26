@@ -45,9 +45,6 @@
 <main>
     <div class="chatbox">
         <app-chat [userInput]="userInput" (sendLoading)="getLoading( $event )"></app-chat>
-        <svg class="border-line" width="100%" height="100%">
-            <rect class="line" x="0" y="0" width="100%" height="100%" rx="20" ry="20" stroke-width="2" fill="transparent"/>
-        </svg>
     </div>
     <div class="inputbox" [class]="responsive" [class.disabled]="loading">
         <app-input [loading]="loading" (sendValue)="getValue( $event )"></app-input>

@@ -29,8 +29,13 @@ export class ChatComponent implements OnInit {
 
     ngOnInit(): void {}
 
-    ngAfterViewChecked(): void {
-        // this.scrollToBottom();
+    ngAfterViewInit() {
+        animate( 'h1', {
+            opacity: { from: '0' },
+            easing: 'easeOutBack',
+            duration: 1000,
+            delay: 3000
+        });
     }
 
     @Input()
