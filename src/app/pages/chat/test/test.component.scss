@@ -1,0 +1,108 @@
+$spacing-1: 0.625rem;
+$spacing-2: 1.25rem;
+$spacing-3: 1.875rem;
+:host {
+    display: block;
+    width: 100%; height: 100%;
+    border: solid 2px transparent;
+    border-radius: $spacing-2;
+    background: var( --mirror );
+    backdrop-filter: blur( 50px ); // frosted blur
+    -webkit-backdrop-filter: blur( 50px ); // for Safari
+    overflow: hidden;
+    animation: show 1s ease-out forwards;
+    animation-delay: 2.5s;
+    @keyframes show {
+        to { border: solid 2px var( --primary );}
+    }
+}
+main {
+    position: relative;
+    display: flex;
+    width: 100%; height: 100%;
+    padding: $spacing-2;
+    flex-direction: column;
+    gap: $spacing-2;
+    overflow-y: auto;
+
+    ::-webkit-scrollbar { width: 6px;}
+    ::-webkit-scrollbar-thumb { border-radius: 3px; background: var( --primary-dark );}
+
+    .intros {
+        display: flex;
+        width: fit-content; height: fit-content;
+        margin: 0 auto;
+        flex-direction: column;
+        align-items: center;
+        gap: $spacing-1;
+        app-logo { width: 10rem;}
+        h1 { text-align: center; color: var( --text-color-standard );}
+    }
+    .chat-row {
+        display: flex;
+        width: 100%; height: fit-content;
+        &.flex-right {
+            border-bottom: solid 1px var( --line-grayscale );
+            justify-content: flex-end;
+        }
+        &.flex-left { justify-content: flex-start;}
+
+        .chat {
+            display: flex;
+            width: fit-content; height: fit-content;
+            
+            &.user {
+                max-width: 40%;
+                margin: 0 0 $spacing-2 auto;
+                padding: $spacing-1 $spacing-3;
+                color: white;
+                border-radius: $spacing-2 0 $spacing-2 $spacing-2 ;
+                background: var( --primary );
+                animation: slideinleft 0.3s ease-in-out forwards;
+                @keyframes slideinleft {
+                    from {
+                        transform: translateX( 4rem );
+                        opacity: 0;
+                    }
+                    to {
+                        transform: translateX( 0 );
+                        opacity: 1;
+                    }
+                }
+            }
+            &.model {
+                padding: $spacing-2 0;
+                color: var( --text-color-standard );
+                animation: slideinright 0.3s ease-in-out forwards;
+                @keyframes slideinright {
+                    from {
+                        transform: translateX( -4rem );
+                        opacity: 0;
+                    }
+                    to {
+                        transform: translateX( 0 );
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+
+    .loading {
+        flex: 1 1 0;
+        position: relative;
+        display: flex;
+        width: 100%;
+        padding: $spacing-3 0;
+        justify-content: center;
+    }
+    app-graviti-star {
+        animation: slide-up 0.4s forwards ease-out;
+        @keyframes slide-up {
+            from {
+                transform: translateY( 5rem );
+                opacity: 0;
+            }
+        }
+    }
+}

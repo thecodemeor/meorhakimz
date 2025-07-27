@@ -44,7 +44,7 @@
 </div>
 <main>
     <div class="chatbox">
-        <app-chat [userInput]="userInput" (sendLoading)="getLoading( $event )"></app-chat>
+        <app-chat [externalUserInput]="userInput" (sendLoading)="getLoading( $event )"></app-chat>
     </div>
     <div class="inputbox" [class]="responsive" [class.disabled]="loading">
         <app-input [loading]="loading" (sendValue)="getValue( $event )"></app-input>

@@ -1,4 +1,4 @@
-<main #chatContainer class="chat-container">
+<main class="container">
     <div *ngIf="!chatHistory.length" class="intros">
         <app-logo class="intro"></app-logo>
         <h1 class="intro">AI Pörtfolio</h1>
@@ -12,9 +12,12 @@
     >
         <div [ngClass]="message.role"
             class="chat">
-            <p class="whitespace-pre-wrap">{{ message.text }}</p>
+        <p class="whitespace-pre-wrap">{{ message.text }}</p>
         </div>
     </div>
+
+    <!-- <app-set-project></app-set-project> -->
+
     <div *ngIf="loading" class="loading">
         <app-loading></app-loading>
     </div>

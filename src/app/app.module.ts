@@ -25,13 +25,16 @@ import { CursifyComponent } from 'src/assets/components/cursify.component';
 // --- Page List --- //
 import { HomeComponent } from 'src/app/pages/home/home.component';
 import { ChatComponent } from 'src/app/pages/chat/chat.component';
+import { TestComponent } from 'src/app/pages/chat/test/test.component';
 import { SetProjectComponent } from 'src/assets/shared/set-projects.component';
+import { Model02Component } from './pages/chat/model-02/model-02.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         HomeComponent,
         ChatComponent,
+        TestComponent,
 
         // Set
         SetProjectComponent,
@@ -42,7 +45,8 @@ import { SetProjectComponent } from 'src/assets/shared/set-projects.component';
         ToggleComponent,
         CursifyComponent,
         LoadingComponent,
-        GravitiComponent
+        GravitiComponent,
+        Model02Component
     ],
     imports: [
         BrowserModule,
