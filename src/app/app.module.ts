@@ -4,9 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { AppComponent } from 'src/app/app.component';
+
+// --- External Libraries --- //
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 // --- Angular Material --- //
 import { MatCardModule } from '@angular/material/card'
@@ -27,6 +31,8 @@ import { HomeComponent } from 'src/app/pages/home/home.component';
 import { ChatComponent } from 'src/app/pages/chat/chat.component';
 import { TestComponent } from 'src/app/pages/chat/test/test.component';
 import { SetProjectComponent } from 'src/assets/shared/set-projects.component';
+import { SetSkillsComponent } from 'src/assets/shared/set-skills/set-skills.component';
+import { SetContactComponent } from 'src/assets/shared/set-contact.component';
 import { Model02Component } from './pages/chat/model-02/model-02.component';
 
 @NgModule({
@@ -38,6 +44,8 @@ import { Model02Component } from './pages/chat/model-02/model-02.component';
 
         // Set
         SetProjectComponent,
+        SetSkillsComponent,
+        SetContactComponent,
 
         LogoComponent,
         ButtonComponent,
@@ -54,6 +62,10 @@ import { Model02Component } from './pages/chat/model-02/model-02.component';
         CommonModule,
         HttpClientModule,
         FormsModule,
+        BrowserAnimationsModule,
+
+        // External Service
+        NgxChartsModule,
 
         // Angular Material
         MatCardModule,

@@ -51,7 +51,7 @@
     </div>
     <div class="short-links">
         @for ( menu of menus; track menu ) {
-            <app-button button direction="column" class="link">
+            <app-button button direction="column" class="link" (click)="signalInput( menu )">
                 <img [src]="'assets/images/icon/' + menu + '.svg'" [alt]="menu">
                 {{ menu | titlecase }}
             </app-button>

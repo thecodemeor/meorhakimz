@@ -97,6 +97,26 @@ export class HomeComponent implements OnInit {
         this.loading = status;
     }
 
+    signalInput( name: string ) {
+        switch ( name ) {
+            case 'me':
+                this.userInput = 'Could you tell me about yourself'
+                break;
+            case 'projects':
+                this.userInput = 'I\'d be interested to hear more about your project. Could you share what it\'s about?'
+                break;
+            case 'skills':
+                this.userInput = 'What skills do you have?'
+                break;
+            case 'fun':
+                this.userInput = ''
+                break;
+            case 'contact':
+                this.userInput = 'How can I contact you?'
+                break;
+        }
+    }
+
     // *** Menu Bar ************************************************** //
     menus = [ "me", "projects", "skills", "fun", "contact" ]
 

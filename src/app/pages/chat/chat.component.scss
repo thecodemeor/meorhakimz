@@ -11,7 +11,7 @@ $spacing-3: 1.875rem;
     -webkit-backdrop-filter: blur( 50px ); // for Safari
     overflow: hidden;
     animation: show 1s ease-out forwards;
-    animation-delay: 2.5s;
+    animation-delay: 0.5s;
     @keyframes show {
         to { border: solid 2px var( --primary );}
     }
@@ -22,7 +22,7 @@ main {
     width: 100%; height: 100%;
     padding: $spacing-2;
     flex-direction: column;
-    gap: $spacing-2;
+    // gap: $spacing-1;
     overflow-y: auto;
 
     ::-webkit-scrollbar { width: 6px;}
@@ -56,7 +56,7 @@ main {
                 margin: 0 0 $spacing-2 auto;
                 padding: $spacing-1 $spacing-3;
                 color: white;
-                border-radius: $spacing-2 0 $spacing-2 $spacing-2 ;
+                border-radius: $spacing-2 0.3rem $spacing-2 $spacing-2 ;
                 background: var( --primary );
                 animation: slideinleft 0.3s ease-in-out forwards;
                 @keyframes slideinleft {
@@ -69,6 +69,7 @@ main {
                         opacity: 1;
                     }
                 }
+                @media ( max-width: 991px ) { max-width: 80%;}
             }
             &.model {
                 padding: $spacing-2 0;
@@ -84,6 +85,7 @@ main {
                         opacity: 1;
                     }
                 }
+                @media ( max-width: 991px ) { max-width: 100%;}
             }
         }
     }

@@ -4,8 +4,9 @@ import { Component, Input, OnInit, ElementRef, Renderer2 } from '@angular/core';
     selector: 'app-set-project',
     standalone: false,
     template: `
+        <div class="title">My Projects</div>
         @for ( project of setProjects; track project ) {
-            <div class="card">
+            <div class="card cardProjects">
                 <div class="image"></div>
                 <div class="details">
                     <div class="label">{{ project.label }}</div>
@@ -19,14 +20,20 @@ import { Component, Input, OnInit, ElementRef, Renderer2 } from '@angular/core';
             --spacing-1: 0.625rem;
             --spacing-2: 1.25rem;
             display: flex;
-            width: 60%; height: fit-content;
-            padding: var( --spacing-2 ) 0;
+            width: 100%; height: fit-content;
+            padding: 0;
             flex-direction: column;
             gap: var( --spacing-1 );
         }
+        .title {
+            padding: 0 var( --spacing-2 );
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var( --text-color-standard )
+        }
         .card {
             display: flex;
-            width: 100%; height: 7rem;
+            width: 60%; height: 7rem;
             border-radius: var( --spacing-2 );
             border: solid 2px var( --primary );
             background: var( --background );
@@ -67,6 +74,24 @@ import { Component, Input, OnInit, ElementRef, Renderer2 } from '@angular/core';
         }
         .card:hover>.details .description {
             color: white;
+        }
+        
+        .cardProjects {
+            transform: translateX( 5rem );
+            opacity: 0;
+            animation: fadeleft 0.6s ease-in-out forwards;
+        }
+        .cardProjects:nth-child( 2 ) { animation-delay: 0.15s}
+        .cardProjects:nth-child( 3 ) { animation-delay: 0.3s}
+        .cardProjects:nth-child( 4 ) { animation-delay: 0.45s}
+        @keyframes fadeleft {
+            to {
+                transform: translateX( 0 );
+                opacity: 1;
+            }
+        }
+        @media ( max-width: 991px ) {
+            .card { width: 100%}
         }
     `
 })

@@ -15,9 +15,12 @@
             <p class="whitespace-pre-wrap">{{ message.text }}</p>
         </div>
     </div>
+    <app-set-project *ngIf="signalProjekt"></app-set-project>
+    <app-set-skills *ngIf="signalCompetenze"></app-set-skills>
+    <app-set-contact *ngIf="signalKontakt"></app-set-contact>
     <div *ngIf="loading" class="loading">
         <app-loading></app-loading>
     </div>
-    <div #messagesEnd></div>
+    <!-- <div #messagesEnd></div> -->
     <app-graviti-star *ngIf="loading"></app-graviti-star>
 </main>
