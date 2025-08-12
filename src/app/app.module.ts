@@ -30,6 +30,7 @@ import { CursifyComponent } from 'src/assets/components/cursify.component';
 import { HomeComponent } from 'src/app/pages/home/home.component';
 import { ChatComponent } from 'src/app/pages/chat/chat.component';
 import { TestComponent } from 'src/app/pages/chat/test/test.component';
+import { SetPersonalComponent } from 'src/assets/shared/set-personal.component';
 import { SetProjectComponent } from 'src/assets/shared/set-projects.component';
 import { SetSkillsComponent } from 'src/assets/shared/set-skills/set-skills.component';
 import { SetContactComponent } from 'src/assets/shared/set-contact.component';
@@ -43,6 +44,7 @@ import { Model02Component } from './pages/chat/model-02/model-02.component';
         TestComponent,
 
         // Set
+        SetPersonalComponent,
         SetProjectComponent,
         SetSkillsComponent,
         SetContactComponent,

@@ -135,7 +135,6 @@ export class ChatComponent implements OnInit, AfterViewInit {
                     if (aiResponseText.includes('getPersonal')) {
                         this.signalPersona= true
                         aiResponseText = aiResponseText.replace('getPersonal', '').trim();
-                        aiResponseText += "Which would you like to explore first — graphic design, websites, photography, or videography?";
                     } else if (aiResponseText.includes('getProject')) {
                         this.signalProjekt= true
                         aiResponseText = aiResponseText.replace('getProjects', '').trim();

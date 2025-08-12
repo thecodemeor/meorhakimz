@@ -7,7 +7,9 @@ import { Component, Input, OnInit, ElementRef, Renderer2 } from '@angular/core';
         <div class="title">My Projects</div>
         @for ( project of setProjects; track project ) {
             <div class="card cardProjects">
-                <div class="image"></div>
+                <div class="image">
+                    <img [src]="project.image" alt="Abstaract">
+                </div>
                 <div class="details">
                     <div class="label">{{ project.label }}</div>
                     <div class="description">{{ project.description }}</div>
@@ -39,7 +41,7 @@ import { Component, Input, OnInit, ElementRef, Renderer2 } from '@angular/core';
             background: var( --background );
             align-items: stretch;
             overflow: hidden;
-            gap: var( --spacing-2 );
+            // gap: var( --spacing-2 );
             transform-origin: 0 50%;
             transition: all 0.3s;
             cursor: pointer;
@@ -49,8 +51,12 @@ import { Component, Input, OnInit, ElementRef, Renderer2 } from '@angular/core';
             scale: 1.05;
         }
         .image {
-            width: 25%; height: 100%;
+            display: flex;
+            width: 30%; height: 100%;
+            justify-content: center;
+            align-items: center;
         }
+        .image img { width: auto; height: 75%;}
         .details {
             flex: 1 1 0;
             display: flex;
@@ -96,31 +102,36 @@ import { Component, Input, OnInit, ElementRef, Renderer2 } from '@angular/core';
     `
 })
 export class SetProjectComponent implements OnInit {
-    constructor( private el: ElementRef, private renderer: Renderer2 ) {}
+    constructor(
+        private el: ElementRef,
+        private renderer: Renderer2,
+    ) {}
 
     buttonClass: string = ''
     directionFlex: string = 'row'
-    ngOnInit() {}
+    ngOnInit() {
+        console.log(this.setProjects, 'mcb')
+    }
 
     setProjects: any[] = [
         {
-            image: '',
+            image: 'assets/images/others/abstract/image-getproject-design.svg',
             label: 'Graphic',
-            description: 'I use Adobe Photoshop, Illustrator, and Dimension for high-quality graphic design.'
+            description: 'I use Adobe Photoshop, Illustrator, and Dimension for high-quality graphic design.',
         },
         {
-            image: '',
+            image: 'assets/images/others/abstract/image-getproject-web.svg',
             label: 'Website',
-            description: 'Lots of colorful, engaging and style protrudes through every element on the website.'
+            description: 'Lots of colorful, engaging and style protrudes through every element on the website.',
         },
         {
-            image: '',
+            image: 'assets/images/others/abstract/image-getproject-photo.svg',
             label: 'Photography',
-            description: 'I am really passionate about photography, so I decided to share with you guys some photos made by me.'
+            description: 'I am really passionate about photography, so I decided to share with you guys some photos made by me.',
         },{
-            image: '',
+            image: 'assets/images/others/abstract/image-getproject-video.svg',
             label: 'Videography',
-            description: 'Watching movies, anime or etc is not enough for me. How about I give it a try to create some of mine.'
+            description: 'Watching movies, anime or etc is not enough for me. How about I give it a try to create some of mine.',
         }
     ]
 }

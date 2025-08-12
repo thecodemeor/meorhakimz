@@ -78,9 +78,9 @@ import { Component, Input, OnInit, ElementRef, Renderer2 } from '@angular/core';
         .sect-personal {
             width: 55%; height: 20dvh;
             background: var( --color-500 );
-            background-image: url('src/assets/images/others/personal-3d.png');
+            background-image: url('src/assets/images/others/profile-image.JPG');
             background-size: cover;
-            background-position: center 10%;
+            background-position: center;
         }
         .sect-email {
             width: calc( 45% - var( --spacing-1 )); height: 20dvh;

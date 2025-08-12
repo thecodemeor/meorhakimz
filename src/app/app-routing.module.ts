@@ -6,7 +6,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { TestComponent } from './pages/chat/test/test.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'skill', pathMatch: 'full' },
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent},
     { path: 'test', component: TestComponent},
 ];
