@@ -1,1 +1,61 @@
-/* You can add global styles to this file, and also import other style files */
+/**======================================================================
+=========================================================================
+Template Name:  Portfolio Styles
+Author:         thecodemeor
+File:           styles.scss
+Description:    This file serves as the central styling entry point for
+                the application. It defines global resets, layout rules,
+                design tokens, and shared utility styles.
+=========================================================================
+====================================================================== */
+/*********************************************
+* Import
+*********************************************/
+@use "mozek-angular/src/styles" as moz;
+@use 'src/assets/scss/fonts.scss';
+@use 'src/assets/scss/component-custom.scss';
+
+/*********************************************
+* Global Styles
+*********************************************/
+body, html {
+    font-family: "Google Sans", sans-serif;
+    color: var(--moz-color-text);
+
+    img {
+        user-select: none;
+        pointer-events: none;
+        -webkit-user-drag: none;
+    }
+}
+html, body { height: 100%; }
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background: var( --background );}
+.chart {
+    title, text, h3, p,
+    span.legend-title-text {
+        color: var( --text-color-standard ) !important;
+        fill: var( --text-color-standard ) !important;
+    }
+}
+
+.undermentainance {
+    position: relative;
+    filter: grayscale( 100 );
+    &::after {
+        content: 'MENTAINANCE';
+        position: absolute;
+        top: 50%; left: 50%;
+        display: flex;
+        font-weight: 900;
+        color: white;
+        text-align: center;
+        transform: translate( -50%, -50% ) rotate(-10deg);
+        pointer-events: none;
+        z-index: 10;
+    }
+}
+
+.squarcle { corner-shape: squircle;}

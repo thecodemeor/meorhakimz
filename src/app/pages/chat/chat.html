@@ -1,0 +1,39 @@
+<main #chatContainer class="chat-container">
+    @if (!chatHistory.length && !loading) {
+        <div class="intros">
+            <app-logo class="intro"></app-logo>
+            <h1 class="intro">AI Pörtfolio</h1>
+            <p class="intro-subtitle">Ask anything about Meor, projects, skills, or contact.</p>
+        </div>
+    }
+
+    @for (message of chatHistory; track message) {
+        <div
+            class="chat-row"
+            [ngClass]="{
+                'flex-right': message.role === 'user',
+                'flex-left': message.role === 'model'
+            }"
+        >
+            <div
+                class="chat"
+                [ngClass]="message.role"
+            >
+                <p class="whitespace-pre-wrap">{{ message.text }}</p>
+            </div>
+        </div>
+    }
+
+    @if (signalPersona) { <app-set-personal></app-set-personal>}
+    @if (signalProjekt) { <app-set-project></app-set-project>}
+    @if (signalCompetenze) { <app-set-skills></app-set-skills>}
+    @if (signalKontakt) { <app-set-contact></app-set-contact>}
+
+    @if (loading) {
+        <div class="loading">
+            <app-loading></app-loading>
+        </div>
+    }
+
+    @if (loading) { <app-graviti-star></app-graviti-star>}
+</main>
