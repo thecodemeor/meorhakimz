@@ -24,7 +24,7 @@ import { SetContactComponent } from 'src/assets/shared/set-contact.component';
 import { animate } from 'animejs';
 
 import { LoadingTemplate } from 'src/assets/components/loading.component';
-import { GravitiComponent } from 'src/assets/components/graviti-star.component';
+import { GravitiComponent } from 'src/assets/components/graviti-star/graviti-star.component';
 
 interface ChatMessage {
     role: 'user' | 'model';
@@ -52,7 +52,7 @@ export class Chat implements OnInit, AfterViewInit {
 
     @Output() sendLoading = new EventEmitter<boolean>();
 
-    private readonly BACKEND_PROXY_URL = 'http://localhost:3000/api/chat';
+    private readonly BACKEND_PROXY_URL = 'https://meorhakimz-backend-proxy.onrender.com/api/chat';
 
     chatHistory: ChatMessage[] = [];
     loading = false;
