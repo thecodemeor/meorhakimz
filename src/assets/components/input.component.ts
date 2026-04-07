@@ -5,7 +5,7 @@ import {
     OnInit,
     EventEmitter
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { FormsModule } from '@angular/forms';
 
 // --- Extra Component --- //
@@ -17,7 +17,7 @@ import { animate, stagger } from 'animejs';
 @Component({
     selector: 'app-input',
     standalone: true,
-    imports: [CommonModule, ButtonComponent, FormsModule],
+    imports: [ButtonComponent, FormsModule],
     template: `
         <div class="container-box" [class.glow]="isFocused">
             <input #textInput type="text" [(ngModel)]="userInput" [placeholder]="!loading ? 'Ask me anything...' : '...'" (focus)="isFocused=true" (blur)="isFocused=false" [disabled]="loading" (keydown.enter)="submit()">

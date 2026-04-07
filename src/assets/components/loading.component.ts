@@ -1,10 +1,10 @@
 import { Component, } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
     selector: 'app-loading',
     standalone: true,
-    imports: [CommonModule],
+    imports: [],
     template: `
         <div class="container">
             @for (dot of [].constructor( 16 ); track dot) {
