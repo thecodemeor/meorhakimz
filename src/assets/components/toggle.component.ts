@@ -61,6 +61,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
             border-radius: var(--toggle-height);
             background-color: var(--bg-night);
             transition: all 250ms ease-in;
+            
+            scale: 0.5;
             cursor: pointer;
         }
 
