@@ -126,6 +126,11 @@ export class Chat implements OnInit, AfterViewInit {
         this.resetSignals();
     }
 
+    clearConversation(): void {
+        this.resetChat();
+        this.userInput = '';
+    }
+
     private appendMessage(role: 'user' | 'model', text: string): void {
         const trimmed = text.trim();
         if (!trimmed) return;
@@ -141,6 +146,16 @@ export class Chat implements OnInit, AfterViewInit {
         }
 
         this.chatHistory.push({ role, text: trimmed });
+    }
+
+    private scrollToTop(): void {
+        const el = this.chatContainerRef?.nativeElement;
+        if (!el) return;
+
+        el.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     }
 
     private handlePresetPrompt(message: string): boolean {
@@ -191,6 +206,56 @@ export class Chat implements OnInit, AfterViewInit {
         return false;
     }
 
+    private buildPayload() {
+        return {
+            contents: this.chatHistory.map(message => ({
+                role: message.role,
+                parts: [{ text: message.text }]
+            }))
+        };
+    }
+
+    private extractAndApplySignals(rawText: string): string {
+        let aiResponseText = rawText;
+
+        if (aiResponseText.includes('getPersonal')) {
+            this.signalPersona = true;
+            aiResponseText = aiResponseText.replace('getPersonal', '').trim();
+        }
+
+        if (aiResponseText.includes('getProject') || aiResponseText.includes('getProjects')) {
+            this.signalProjekt = true;
+            aiResponseText = aiResponseText
+                .replace('getProject', '')
+                .replace('getProjects', '')
+                .trim();
+
+            if (aiResponseText.length > 0) {
+                aiResponseText += ' ';
+            }
+
+            aiResponseText += 'Which project would you like to explore first?';
+        }
+
+        if (aiResponseText.includes('getSkills')) {
+            this.signalCompetenze = true;
+            aiResponseText = aiResponseText.replace('getSkills', '').trim();
+        }
+
+        if (aiResponseText.includes('getContact')) {
+            this.signalKontakt = true;
+            aiResponseText = aiResponseText.replace('getContact', '').trim();
+
+            if (aiResponseText.length > 0) {
+                aiResponseText += ' ';
+            }
+
+            aiResponseText += 'You can find all my contact info and socials here.';
+        }
+
+        return aiResponseText.trim();
+    }
+
     async sendMessage(messageOverride?: string): Promise<void> {
         const currentMessage = (messageOverride ?? this.userInput).trim();
 
@@ -202,25 +267,20 @@ export class Chat implements OnInit, AfterViewInit {
 
         if (this.handlePresetPrompt(currentMessage)) {
             this.userInput = '';
+            setTimeout(() => this.scrollToTop(), 0);
             this.isProcessingMessage = false;
             return;
         }
 
-        this.resetChat();
         this.appendMessage('user', currentMessage);
         this.userInput = '';
+
+        setTimeout(() => this.scrollToTop(), 0);
 
         this.loading = true;
         this.sendLoading.emit(true);
 
-        const payload = {
-            contents: [
-                {
-                    role: 'user',
-                    parts: [{ text: currentMessage }]
-                }
-            ]
-        };
+        const payload = this.buildPayload();
 
         const headers = new HttpHeaders({
             'Content-Type': 'application/json'
@@ -271,34 +331,7 @@ export class Chat implements OnInit, AfterViewInit {
                         return;
                     }
 
-                    let aiResponseText = rawText;
-
-                    if (aiResponseText.includes('getPersonal')) {
-                        this.signalPersona = true;
-                        aiResponseText = aiResponseText.replace('getPersonal', '').trim();
-                    } else if (aiResponseText.includes('getProject')) {
-                        this.signalProjekt = true;
-                        aiResponseText = aiResponseText.replace('getProject', '').trim();
-
-                        if (aiResponseText.length > 0) {
-                            aiResponseText += ' ';
-                        }
-
-                        aiResponseText += 'Which project would you like to explore first?';
-                    } else if (aiResponseText.includes('getSkills')) {
-                        this.signalCompetenze = true;
-                        aiResponseText = aiResponseText.replace('getSkills', '').trim();
-                    } else if (aiResponseText.includes('getContact')) {
-                        this.signalKontakt = true;
-                        aiResponseText = aiResponseText.replace('getContact', '').trim();
-
-                        if (aiResponseText.length > 0) {
-                            aiResponseText += ' ';
-                        }
-
-                        aiResponseText += 'You can find all my contact info and socials here.';
-                    }
-
+                    const aiResponseText = this.extractAndApplySignals(rawText);
                     this.appendMessage('model', aiResponseText || 'Done.');
                 },
                 error: (err) => {

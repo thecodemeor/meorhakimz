@@ -7,33 +7,66 @@
         </div>
     }
 
-    @for (message of chatHistory; track message) {
-        <div
-            class="chat-row"
-            [ngClass]="{
-                'flex-right': message.role === 'user',
-                'flex-left': message.role === 'model'
-            }"
-        >
+    <div class="chat-thread">
+        @for (message of chatHistory; track $index) {
             <div
-                class="chat"
-                [ngClass]="message.role"
+                class="chat-row"
+                [ngClass]="{
+                    'flex-right': message.role === 'user',
+                    'flex-left': message.role === 'model'
+                }"
             >
-                <p class="whitespace-pre-wrap">{{ message.text }}</p>
+                <div
+                    class="chat"
+                    [ngClass]="message.role"
+                >
+                    <p class="whitespace-pre-wrap">{{ message.text }}</p>
+                </div>
             </div>
-        </div>
-    }
+        }
 
-    @if (signalPersona) { <app-set-personal></app-set-personal>}
-    @if (signalProjekt) { <app-set-project></app-set-project>}
-    @if (signalCompetenze) { <app-set-skills></app-set-skills>}
-    @if (signalKontakt) { <app-set-contact></app-set-contact>}
+        @if (signalPersona) {
+            <div class="chat-row flex-left">
+                <div class="chat chat-widget model">
+                    <app-set-personal></app-set-personal>
+                </div>
+            </div>
+        }
+
+        @if (signalProjekt) {
+            <div class="chat-row flex-left">
+                <div class="chat chat-widget model">
+                    <app-set-project></app-set-project>
+                </div>
+            </div>
+        }
+
+        @if (signalCompetenze) {
+            <div class="chat-row flex-left">
+                <div class="chat chat-widget model">
+                    <app-set-skills></app-set-skills>
+                </div>
+            </div>
+        }
+
+        @if (signalKontakt) {
+            <div class="chat-row flex-left">
+                <div class="chat chat-widget model">
+                    <app-set-contact></app-set-contact>
+                </div>
+            </div>
+        }
+
+        @if (loading) {
+            <div class="loading">
+                <div class="chat model loading-bubble">
+                    <app-loading></app-loading>
+                </div>
+            </div>
+        }
+    </div>
 
     @if (loading) {
-        <div class="loading">
-            <app-loading></app-loading>
-        </div>
+        <app-graviti-star></app-graviti-star>
     }
-
-    @if (loading) { <app-graviti-star></app-graviti-star>}
 </main>

@@ -151,7 +151,6 @@ import { MatIconModule } from '@angular/material/icon';
         }
         .card-website {
             display: flex;
-            width: 60%;
             padding: var(--moz-space-1);
             aspect-ratio: 1.7 / 1;
             border-radius: var( --moz-radius-lg );
