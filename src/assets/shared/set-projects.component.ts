@@ -256,13 +256,19 @@ export class SetProjectComponent implements OnInit {
             label: 'Pokedex',
             image: 'pokemon',
             github: 'pokemon'
+        },
+        {
+            name: 'syazareen',
+            label: 'Areen’s Website',
+            image: 'syazareen',
+            github: 'my-syazareen'
         }
     ]
 
     openLink( project: string ) {
         switch ( project.toLowerCase() ) {
             case 'graphic':
-                window.open('https://pixore-creative.web.app/', '_blank');
+                window.open('https://thecodemeor.github.io/creatives/', '_blank');
                 break;
             case 'website':
                 this.websiteSection = true
@@ -284,6 +290,9 @@ export class SetProjectComponent implements OnInit {
                 break;
             case 'pokemon':
                 window.open('https://thecodemeor.github.io/pokemon/home', '_blank');
+                break;
+            case 'syazareen':
+                window.open('https://syazareen-nafisah.web.app/home', '_blank');
                 break;
         }
     }

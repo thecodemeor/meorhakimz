@@ -68,7 +68,7 @@ $corner: 2rem;
                         justify-content: center;
                         gap: 5px;
                         .sample {
-                            width: 1.5rem;
+                            width: 1.5rem; height: 1.5rem;
                             aspect-ratio: 1 / 1;
                             padding: 3px;
                             border: solid 1px var( --line-grayscale );

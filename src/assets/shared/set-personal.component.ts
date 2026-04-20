@@ -161,6 +161,14 @@ import {
             color: white;
         }
 
+        @media ( max-width: 768px ) {
+            .subtitle p {
+                font-size: 0.6rem;
+                font-weight: 400;
+                color: white;
+            }
+        }
+
         .career {
             position: absolute;
             bottom: -1rem;

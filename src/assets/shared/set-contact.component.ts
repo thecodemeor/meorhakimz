@@ -251,6 +251,51 @@ import { Component, Input, OnInit, ElementRef, Renderer2 } from '@angular/core';
             }
             h6 { margin: auto auto 0;}
         }
+
+        @media ( max-width: 768px ) {
+            .contact-widget {
+                width: 100%; height: auto;
+                margin: 0;
+                grid-template-rows: unset;
+            }
+            .sect-personal {
+                grid-column: 1 / span 3;
+                grid-row: 1 / span 3;
+                padding: 0;
+            }
+            .sect-email {
+                grid-column: 4 / span 2;
+                grid-row: 1 / span 1;
+                padding: var(--moz-space-1);
+            }
+            .sect-email .email {
+                display: flex;
+                padding: 0;
+                justify-content: center;
+                align-items: center;
+                
+                .header {
+                    display: flex;
+                    padding: 0;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .spacer, .footer, h4 { display: none}
+            }
+            .sect-linkedin {
+                grid-column: 4 / span 2;
+                grid-row: 2 / span 1;
+            }
+            .sect-github {
+                grid-column: 4 / span 2;
+                grid-row: 3 / span 1;
+            }
+            .sect-document {
+                grid-column: 1 / span 5;
+                grid-row: 4 / span 1;
+            }
+        }
     `
 })
 export class SetContactComponent implements OnInit {
