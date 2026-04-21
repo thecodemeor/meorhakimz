@@ -1,5 +1,5 @@
-$primary-color: #c49c81;
-$secondary-color: #6a2a00;
+$primary-color: var(--primary);
+$secondary-color: var(--primary-dark);
 $background-color: #f3e9da;
 
 svg {
@@ -37,6 +37,14 @@ svg {
 
 .cls-4, .cls-3
 { stroke-miterlimit: 10;}
+
+.grad-start {
+  stop-color: var(--primary-dark);
+}
+
+.grad-end {
+  stop-color: var(--primary);
+}
 
 /**=========================================
 Animation
